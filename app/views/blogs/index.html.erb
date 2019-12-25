@@ -1,0 +1,20 @@
+<h1>index</h1>
+<table>
+  <tr>
+    <th>title</th>
+    <th>content</th>
+  </tr>
+
+  <% @blogs.each do |blog| %>
+    <tr>
+      <td><%= blog.title %></td>
+      <td><%= blog.content %></td>
+
+      <td><%= link_to "show", blog_path(blog.id) %></td>
+      <td><%= link_to "edit", edit_blog_path(blog.id) %></td>
+      <td><%= link_to "delete", blog_path(blog.id), method: :delete, data: {confirm: "are you sure?"} %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "new blog", new_blog_path %>
