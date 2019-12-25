@@ -1,0 +1,37 @@
+<%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %><%= t('view.errors') %></h2>
+      <ul>
+
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form_field">
+    <%= form.label :name, t('view.name') %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="form_field">
+    <%= form.label :email, t('view.email') %>
+    <%= form.text_field :email %>
+  </div>
+  <div class="form_field">
+    <%= form.label :password, t('view.password') %>
+    <%= form.password_field :password %>
+  </div>
+  <div class="form_field">
+    <%= form.label :password_confirmation, t('view.password_confirmation') %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+  <div>
+    <%= form.submit '登録' %>
+  </div>
+<% end %>
+
+<div class="btn">
+  <%#= link_to 'トップ', root_path %>
+</div>
