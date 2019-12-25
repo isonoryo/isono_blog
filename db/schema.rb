@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_12_25_085045) do
 
   create_table "users", force: :cascade do |t|
@@ -18,6 +19,17 @@ ActiveRecord::Schema.define(version: 2019_12_25_085045) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "password_digest"
+
+ActiveRecord::Schema.define(version: 2019_12_25_084333) do
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_blogs_on_user_id"
+
   end
 
 end
